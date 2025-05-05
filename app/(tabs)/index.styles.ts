@@ -16,13 +16,14 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#009FB7',
+    color: '#ff6937',
     textAlign: 'center',
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: 15,
     color: '#696773',
     textAlign: 'center',
+    fontWeight: 'bold',
     marginBottom: 24,
   },
   quote: {
@@ -30,11 +31,13 @@ export const styles = StyleSheet.create({
     fontStyle: 'italic',
     textAlign: 'center',
     color: '#272727',
+    fontWeight: 'bold',
     marginBottom: 8,
   },
   author: {
     fontSize: 14,
     textAlign: 'center',
+    fontWeight: 'bold',
     color: '#272727',
   },
 });
