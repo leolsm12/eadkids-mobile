@@ -3,18 +3,36 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 24,
-    justifyContent: 'center',
+    padding: 20,
     alignItems: 'center',
-    backgroundColor: '#F0F0F0',
+    backgroundColor: '#fff',
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 16,
+  photoContainer: {
+    alignItems: 'center',
+    marginBottom: 20,
   },
-  info: {
-    fontSize: 16,
-    marginBottom: 8,
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderWidth: 2,
+    borderColor: '#ff6937',
+  },
+  photoText: {
+    marginTop: 8,
+    color: '#555',
+  },
+  input: {
+    width: '90%',
+    backgroundColor: '#f2f2f2',
+    borderRadius: 10,
+    padding: 12,
+    marginVertical: 8,
+    borderColor: '#ddd',
+    borderWidth: 1,
+  },
+  comentario: {
+    height: 100,
+    textAlignVertical: 'top',
   },
 });
