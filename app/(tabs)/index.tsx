@@ -5,7 +5,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       
-
+      
       <Text style={styles.title}>EadKids</Text>
       <Text style={styles.subtitle}>Transformando o mundo num lugar melhor</Text>
 

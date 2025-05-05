@@ -1,7 +1,15 @@
-// components/CustomTabBar.tsx
+import { Ionicons } from '@expo/vector-icons';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+const tabIcons: Record<string, { name: string; label: string }> = {
+  index: { name: 'home', label: 'Home' },
+  'conteudo/conteudo_index': { name: 'book-outline', label: 'Conteúdo' },
+  'atividades/atividades_index': { name: 'book', label: 'Atividades' },
+  'concluidas/concluidas_index': { name: 'checkmark-done-outline', label: 'Concluídas' },
+  'perfil/perfil_index': { name: 'person-circle-outline', label: 'Perfil' },
+};
 
 export function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
   return (
@@ -12,7 +20,8 @@ export function CustomTabBar({ state, descriptors, navigation }: BottomTabBarPro
         if (isFocused) return null; // Oculta a aba atual
 
         const { options } = descriptors[route.key];
-        const label = options.tabBarLabel ?? options.title ?? route.name;
+        const routeName = route.name;
+        const iconData = tabIcons[routeName] ?? { name: 'help', label: routeName };
 
         return (
           <TouchableOpacity
@@ -20,9 +29,10 @@ export function CustomTabBar({ state, descriptors, navigation }: BottomTabBarPro
             onPress={() => navigation.navigate(route.name)}
             style={styles.button}
           >
-            <Text style={styles.label}>
-              {typeof label === 'string' ? label : label({ focused: false, color: '#333', position: 'beside-icon', children: '' })}
-            </Text>
+            <View style={styles.iconCircle}>
+              <Ionicons name={iconData.name as any} size={24} color="#ff6937" />
+            </View>
+            <Text style={styles.label}>{iconData.label}</Text>
           </TouchableOpacity>
         );
       })}
@@ -41,10 +51,21 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
   },
   button: {
-    padding: 10,
+    alignItems: 'center',
+  },
+  iconCircle: {
+    backgroundColor: '#fff',
+    borderWidth: 2,
+    borderColor: '#ff6937',
+    borderRadius: 30,
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 4,
   },
   label: {
-    fontSize: 14,
+    fontSize: 12,
     color: '#333',
   },
 });
